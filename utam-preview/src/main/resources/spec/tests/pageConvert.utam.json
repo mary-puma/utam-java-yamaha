@@ -1,0 +1,192 @@
+{
+  "root": true,
+  "selector": {
+    "css": ".forceDetailPanelDesktop"
+  },
+
+  "beforeLoad": [
+    {
+      "element": "root",
+      "apply": "waitFor",
+      "args": [
+        {
+          "type": "function",
+          "predicate": [
+            {
+              "element": "root",
+              "apply": "containsElement",
+              "args": [
+                {
+                  "value": { "css": ".createPanelDetail.slds-box_border.runtime_sales_leadConvertCreatePanelDesktop" },
+                  "type": "locator"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+
+ "elements": [
+   {
+     "name": "buttonConvert",
+     "type": "clickable",
+     "selector": {
+       "css": ".footer span button"
+     },
+     "public": true
+   },
+   {
+     "name": "button",
+     "type": "actionable",
+     "selector": {
+       "css": ".footer button",
+       "returnAll": true
+     },
+     "public": true
+   },
+
+   {
+     "name": "section",
+     "type": "actionable",
+     "selector": {
+       "css": ".containerWithMargin.runtime_sales_leadConvertDesktop > fieldset ",
+       "returnAll": true
+     },
+     "public": true
+   },
+   {
+     "name": "existCol4",
+     "selector": {
+       "css": ".containerWithMargin.runtime_sales_leadConvertDesktop > fieldset .col4  .header label"
+     }
+   },
+   {
+     "name": "messageError",
+     "selector": {
+       "css": ".errorToast"
+     },
+     "public": true
+   },
+   {
+     "name": "containsCol4",
+     "selector": {
+       "css": ".containerWithMargin.runtime_sales_leadConvertDesktop > fieldset .col4"
+     }
+
+   }
+ ],
+  "methods": [
+    {
+      "name": "waitForButtonConvert",
+      "compose": [
+        {
+
+          "apply": "waitFor",
+          "args": [
+            {
+              "type": "function",
+              "predicate": [
+                {
+                  "element": "buttonConvert",
+                  "apply": "getText",
+                  "matcher": {
+                    "type": "stringEquals",
+                    "args": [
+                      {
+                        "value": "Convert"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "waitForCol4",
+      "compose": [
+        {
+
+          "apply": "waitFor",
+          "args": [
+            {
+              "type": "function",
+              "predicate": [
+                {
+                  "element": "existCol4",
+                  "apply": "getText",
+                  "matcher": {
+                    "type": "stringEquals",
+                    "args": [
+                      {
+                        "value": "Choose Existing"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "waitForMatchPanelDetail",
+      "compose" : [
+        {
+          "apply" : "waitFor",
+          "args" : [
+            {
+              "type" : "function",
+              "predicate" : [
+                {
+                  "element" : "containsCol4",
+                  "apply" : "containsElement",
+                  "args" : [
+                    {
+                      "type" : "locator",
+                      "value" : {
+                        "css" : ".matchPanelDetail"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "waitForMessageError",
+      "compose" : [
+        {
+          "apply" : "waitFor",
+          "args" : [
+            {
+              "type" : "function",
+              "predicate" : [
+                {
+                  "element" : "messageError",
+                  "apply" : "containsElement",
+                  "args" : [
+                    {
+                      "type" : "locator",
+                      "value" : {
+                        "css" : ".errorMessage"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

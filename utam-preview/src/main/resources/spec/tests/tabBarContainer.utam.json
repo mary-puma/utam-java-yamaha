@@ -1,0 +1,24 @@
+{
+  "root": true,
+  "selector": {
+    "css": ".wsTabset.oneConsoleTabset.navexConsoleTabset"
+  },
+  "elements": [
+    {
+      "name": "buttonDropdown",
+      "type": "clickable",
+      "selector": {
+        "css": ".tabsetBody.oneConsoleTabItem button[title='Actions for Convert']"
+      },
+      "public": true
+    },
+    {
+      "name": "buttonRefresh",
+      "type": "clickable",
+      "selector": {
+        "css": ".tabsetBody.oneConsoleTabItem.slds-dropdown li[title='Refresh Tab']"
+      },
+      "public": true
+    }
+  ]
+}

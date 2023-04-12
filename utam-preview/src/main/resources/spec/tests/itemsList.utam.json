@@ -1,0 +1,102 @@
+{
+  "root": true,
+  "selector": {
+    "css": ".oneConsoleTabset"
+  },
+  "elements": [
+    {
+      "name": "button",
+      "type": "clickable",
+      "selector": {
+        "css": ".oneAppNavMenu button"
+      },
+      "public": true
+    },
+    {
+      "name" : "revealedNavMenuItem",
+      "type" : [
+        "clickable"
+      ],
+      "public" : true,
+      "selector" : {
+        "css" : ".oneAppNavMenu section a[data-label='%s']",
+        "args" : [
+          {
+            "name" : "menuTitle",
+            "type" : "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "titleYamaha",
+      "selector": {
+        "css": ".appName"
+      }
+    },
+    {
+      "name": "containsTable",
+      "selector": {
+        "css": ".listViewContent"
+      },
+      "public": true
+    }
+  ],
+  "methods": [
+    {
+      "name": "waitForTitleYamaha",
+      "compose": [
+        {
+
+          "apply": "waitFor",
+          "args": [
+            {
+              "type": "function",
+              "predicate": [
+                {
+                  "element": "titleYamaha",
+                  "apply": "getText",
+                  "matcher": {
+                    "type": "stringEquals",
+                    "args": [
+                      {
+                        "value": "Yamaha"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "waitForRecords",
+      "compose" : [
+        {
+          "apply" : "waitFor",
+          "args" : [
+            {
+              "type" : "function",
+              "predicate" : [
+                {
+                  "element" : "containsTable",
+                  "apply" : "containsElement",
+                  "args" : [
+                    {
+                      "type" : "locator",
+                      "value" : {
+                        "css" : "table tbody"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
