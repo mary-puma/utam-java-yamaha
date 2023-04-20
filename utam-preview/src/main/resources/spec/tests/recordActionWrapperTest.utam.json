@@ -1,0 +1,322 @@
+{
+  "metadata" : {
+    "status" : "public"
+  },
+  "description" : {
+    "text" : [
+      "Selector: .oneRecordActionWrapper.",
+      "Represents the one:recordActionWrapper Aura component.",
+      "Get the body text, force:changeRecordTypeFooter, records-lwc-detail-panel, records-base-record-form, or flexipage-record-home-single-col-no-header-template-desktop2 components.",
+      "Wait for the footer to load. Click a footer button by text."
+    ],
+    "author" : "mary"
+  },
+  "root" : true,
+  "selector" : {
+    "css" : ".oneRecordActionWrapper"
+  },
+  "exposeRootElement" : true,
+  "beforeLoad" : [
+    {
+      "apply" : "waitFor",
+      "args" : [
+        {
+          "type" : "function",
+          "predicate" : [
+            {
+              "element" : "root",
+              "apply" : "isPresent"
+            },
+            {
+              "element" : "root",
+              "apply" : "containsElement",
+              "args" : [
+                {
+                  "type" : "locator",
+                  "value" : {
+                    "css" : "records-form-footer"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "methods" : [
+    {
+      "name" : "getLcText",
+      "compose" : [
+        {
+          "element" : "body",
+          "apply" : "getText"
+        }
+      ]
+    },
+    {
+      "name" : "waitForFooter",
+      "compose" : [
+        {
+          "apply" : "waitFor",
+          "args" : [
+            {
+              "type" : "function",
+              "predicate" : [
+                {
+                  "element" : "footer",
+                  "matcher" : {
+                    "type" : "notNull"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "waitForChangeRecordFooter",
+      "compose" : [
+        {
+          "apply" : "waitFor",
+          "args" : [
+            {
+              "type" : "function",
+              "predicate" : [
+                {
+                  "element" : "footer"
+                },
+                {
+                  "returnType" : "utam-force/pageObjects/changeRecordTypeFooter",
+                  "element" : "footerContent",
+                  "args" : [
+                    {
+                      "type" : "pageObject",
+                      "value" : "utam-force/pageObjects/changeRecordTypeFooter"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "getDetailPanel",
+      "compose" : [
+        {
+          "apply" : "waitFor",
+          "args" : [
+            {
+              "type" : "function",
+              "predicate" : [
+                {
+                  "element" : "detailsPanelContainer",
+                  "args" : [
+                    {
+                      "type" : "pageObject",
+                      "value" : "utam-records/pageObjects/modalLwcDetailPanelWrapper"
+                    }
+                  ],
+                  "returnType" : "utam-records/pageObjects/modalLwcDetailPanelWrapper"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "element" : "lwcDetailPanel",
+          "chain" : true,
+          "returnType" : "utam-records/pageObjects/lwcDetailPanel"
+        }
+      ]
+    },
+    {
+      "name" : "getRecordForm",
+      "compose" : [
+        {
+          "apply" : "getDetailPanel",
+          "returnType" : "utam-records/pageObjects/lwcDetailPanel"
+        },
+        {
+          "element" : "baseRecordForm",
+          "chain" : true,
+          "returnType" : "utam-records/pageObjects/baseRecordForm"
+        },
+        {
+          "apply" : "waitForLoad",
+          "chain" : true,
+          "returnType" : "utam-records/pageObjects/baseRecordForm"
+        }
+      ]
+    },
+    {
+      "name" : "waitForRecordHomeSingleColNoHeaderTemplateDesktop2",
+      "compose" : [
+        {
+          "apply" : "waitFor",
+          "args" : [
+            {
+              "type" : "function",
+              "predicate" : [
+                {
+                  "element" : "recordHomeSingleColNoHeaderTemplateDesktop2"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "waitForDetailsPanelContainer",
+      "compose" : [
+        {
+          "apply" : "waitFor",
+          "args" : [
+            {
+              "type" : "function",
+              "predicate" : [
+                {
+                  "element" : "body",
+                  "apply" : "containsElement",
+                  "args" : [
+                    {
+                      "type" : "locator",
+                      "value" : {
+                        "css" : ":scope > *:first-child"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "apply" : "returnSelf"
+        }
+      ]
+    },
+    {
+      "name" : "clickFooterButton",
+      "compose" : [
+        {
+          "apply" : "waitFor",
+          "args" : [
+            {
+              "type" : "function",
+              "predicate" : [
+                {
+                  "element" : "actionsContainer"
+                },
+                {
+                  "chain" : true,
+                  "returnType" : "utam-force/pageObjects/actionButton",
+                  "element" : "actionButton",
+                  "args" : [
+                    {
+                      "name" : "labelText",
+                      "type" : "string"
+                    }
+                  ]
+                },
+                {
+                  "chain" : true,
+                  "apply" : "click"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "elements" : [
+    {
+      "name" : "body",
+      "selector" : {
+        "css" : ".actionBody"
+      },
+      "elements" : [
+        {
+          "name" : "detailsPanelContainer",
+          "type" : "container",
+          "selector" : {
+            "css" : ":scope > *:first-child"
+          },
+          "public" : true
+        },
+        {
+          "name" : "recordHomeSingleColNoHeaderTemplateDesktop2",
+          "type" : "utam-flexipage/pageObjects/recordHomeSingleColNoHeaderTemplateDesktop2",
+          "selector" : {
+            "css" : "flexipage-record-home-single-col-no-header-template-desktop2"
+          }
+        },
+        {
+          "name" : "recordHomeSingleColNoHeaderTemplateDesktop2Test",
+          "type" : "utam-tests/pageObjects/newLead",
+          "selector" : {
+            "css" : "flexipage-record-home-single-col-no-header-template-desktop2"
+          },
+          "public": true
+        },
+
+        {
+          "name" : "mobileRecordPageDecorator",
+          "type" : "utam-record-flexipage/pageObjects/mobileRecordPageDecorator",
+          "selector" : {
+            "css" : "record_flexipage-mobile-record-page-decorator"
+          },
+          "public" : true
+        }
+      ]
+    },
+    {
+      "name" : "forceFormFooter",
+      "type" : "utam-records/pageObjects/formFooter",
+      "selector" : {
+        "css" : "records-form-footer"
+      },
+      "public" : true
+    },
+    {
+      "name" : "footer",
+      "selector" : {
+        "css" : ".inlineFooter"
+      },
+      "elements" : [
+        {
+          "name" : "actions",
+          "type" : "utam-force/pageObjects/recordEditActions",
+          "selector" : {
+            "css" : ".forceRecordEditActions"
+          },
+          "public" : true
+        },
+        {
+          "name" : "actionsContainer",
+          "type" : "utam-force/pageObjects/actionsContainer",
+          "selector" : {
+            "css" : ".actionsContainer"
+          },
+          "public" : true
+        },
+        {
+          "name" : "footerContent",
+          "type" : "container",
+          "public" : true
+        }
+      ]
+    },
+    {
+      "name" : "lcActionOverride",
+      "selector" : {
+        "css" : "div[class='overridePresent inlinePanel oneRecordActionWrapper']"
+      }
+    }
+  ]
+}

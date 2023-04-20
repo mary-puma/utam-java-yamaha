@@ -1,0 +1,13 @@
+{
+  "elements": [
+    {
+      "name": "recordLayoutCheckbox",
+      "type": "utam-tests/pageObjects/recordLayoutCheckboxTest",
+      "selector": {
+        "css": "records-record-layout-checkbox"
+      },
+      "public": true
+    }
+  ]
+
+}

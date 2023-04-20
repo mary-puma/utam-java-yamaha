@@ -1,0 +1,27 @@
+{
+  "metadata" : {
+    "status" : "public"
+  },
+  "description" : {
+    "author" : "mary",
+    "text" : [
+      "Selector: records-record-layout-base-input.",
+      "Represents the records-record-layout-base-input Lightning web component.",
+      "Access the input."
+    ]
+  },
+  "shadow" : {
+    "elements" : [
+      {
+
+        "name" : "input",
+        "type" : "utam-tests/pageObjects/inputTest",
+        "public" : true,
+        "nullable" : true,
+        "selector" : {
+          "css" : "lightning-input"
+        }
+      }
+    ]
+  }
+}

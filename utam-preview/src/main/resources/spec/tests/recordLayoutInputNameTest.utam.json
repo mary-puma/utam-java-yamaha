@@ -1,0 +1,25 @@
+{
+  "metadata" : {
+    "status" : "public"
+  },
+  "description" : {
+    "author" : "Salesforce",
+    "text" : [
+      "Selector: records-record-layout-input-name.",
+      "Represents the records-record-layout-input-name Lightning web component.",
+      "Access the input name."
+    ]
+  },
+  "shadow" : {
+    "elements" : [
+      {
+        "name" : "inputName",
+        "type" : "utam-tests/pageObjects/inputNameTest",
+        "selector" : {
+          "css" : "lightning-input-name"
+        },
+        "public" : true
+      }
+    ]
+  }
+}

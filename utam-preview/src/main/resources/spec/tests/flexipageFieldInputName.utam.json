@@ -1,0 +1,14 @@
+{
+  "elements": [
+    {
+      "name": "recordLayoutInputName",
+      "type": "utam-tests/pageObjects/recordLayoutInputNameTest",
+      "selector": {
+        "css": "records-record-layout-input-name"
+      },
+      "public": true
+    }
+  ]
+
+
+}

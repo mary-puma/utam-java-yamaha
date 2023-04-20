@@ -1,0 +1,132 @@
+{
+  "description": {
+    "author": "mary",
+    "text": [
+      "Selector: lightning-lookup",
+      "Represents the lightning-lookup Lightning web component."
+    ]
+  },
+  "methods": [
+    {
+      "name": "deleteAllPills",
+      "description": {
+        "text": [
+          "Delete all the pills from the pill container."
+        ],
+        "return": "none"
+      },
+      "compose": [
+        {
+          "element": "lookupDesktop",
+          "returnType": "utam-tests/pageObjects/lookupDesktopTest"
+        },
+        {
+          "chain": true,
+          "element": "pillContainer",
+          "returnType": "utam-lightning/pageObjects/pillContainer"
+        },
+        {
+          "chain": true,
+          "element": "allPills",
+          "returnType": "utam-lightning/pageObjects/pill",
+          "returnAll": true
+        },
+        {
+          "chain": true,
+          "apply": "remove"
+        }
+      ]
+    },
+    {
+      "name": "type",
+      "description": {
+        "text": [
+          "Type a text into the combobox input."
+        ],
+        "return": "none"
+      },
+      "compose": [
+        {
+          "returnType": "utam-lightning/pageObjects/baseCombobox",
+          "apply": "getBaseCombobox"
+        },
+        {
+          "chain": true,
+          "apply": "setSelectedItemText",
+          "args": [
+            {
+              "name": "text",
+              "type": "string"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "selectFromList",
+      "description": {
+        "text": [
+          "Select an item in the combobox by value."
+        ],
+        "return": "none"
+      },
+      "compose": [
+        {
+          "returnType": "utam-lightning/pageObjects/baseCombobox",
+          "apply": "getBaseCombobox"
+        },
+        {
+          "chain": true,
+          "returnType": "utam-lightning/pageObjects/baseComboboxItem",
+          "element": "itemByValue",
+          "args": [
+            {
+              "name": "text",
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "chain": true,
+          "apply": "clickItem"
+        }
+      ]
+    },
+    {
+      "name": "getBaseCombobox",
+      "description": {
+        "text": [
+          "Get the baseCombobox component."
+        ],
+        "return": "baseCombobox page object"
+      },
+      "compose": [
+        {
+          "element": "lookupDesktop"
+        },
+        {
+          "chain": true,
+          "element": "groupedCombobox",
+          "returnType": "utam-tests/pageObjects/groupedComboboxTest"
+        },
+        {
+          "chain": true,
+          "element": "baseCombobox",
+          "returnType": "utam-lightning/pageObjects/baseCombobox"
+        }
+      ]
+    }
+  ],
+  "shadow": {
+    "elements": [
+      {
+        "name": "lookupDesktop",
+        "public": true,
+        "type": "utam-tests/pageObjects/lookupDesktopTest",
+        "selector": {
+          "css": "lightning-lookup-desktop"
+        }
+      }
+    ]
+  }
+}

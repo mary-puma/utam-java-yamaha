@@ -1,0 +1,29 @@
+{
+  "description" : {
+    "author" : "mary",
+    "text" : [
+      "Selector: lightning-lookup-desktop",
+      "Represents the lightning-lookup-desktop Lightning web component."
+    ]
+  },
+  "shadow" : {
+    "elements" : [
+      {
+        "name" : "groupedCombobox",
+        "public" : true,
+        "type" : "utam-tests/pageObjects/groupedComboboxTest",
+        "selector" : {
+          "css" : "lightning-grouped-combobox"
+        }
+      },
+      {
+        "name" : "pillContainer",
+        "public" : true,
+        "type" : "utam-lightning/pageObjects/pillContainer",
+        "selector" : {
+          "css" : "lightning-pill-container"
+        }
+      }
+    ]
+  }
+}

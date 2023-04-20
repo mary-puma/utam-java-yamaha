@@ -1,0 +1,13 @@
+{
+  "elements": [
+    {
+      "name": "lightningInput",
+      "type": "utam-tests/pageObjects/inputTest",
+      "selector": {
+        "css": "lightning-input"
+      },
+      "public": true
+    }
+  ]
+
+}

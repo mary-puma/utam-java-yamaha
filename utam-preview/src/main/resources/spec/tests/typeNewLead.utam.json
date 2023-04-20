@@ -1,0 +1,17 @@
+{
+  "root": true,
+  "selector": {
+    "css": ".inlinePanel.oneRecordActionWrapper"
+  },
+
+  "elements": [
+    {
+      "name": "buttonNext",
+      "type": "clickable",
+      "selector": {
+        "css": ".slds-button.slds-button--neutral.slds-button.slds-button_brand.uiButton"
+      },
+      "public": true
+    }
+  ]
+}

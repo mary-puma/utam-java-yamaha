@@ -1,0 +1,146 @@
+{
+  "type" : [
+    "actionable"
+  ],
+  "elements": [
+    {
+      "name": "field",
+      "type": "actionable",
+      "selector": {
+        "css": "flexipage-component2:nth-of-type(%d)",
+        "args": [
+          {
+            "name": "rowIndex",
+            "type": "number"
+          }
+        ]
+      },
+      "elements": [
+        {
+          "name": "messageErrorPrueba",
+          "type": "utam-tests/pageObjects/flexipageFieldTest",
+          "selector": {
+            "css": "flexipage-field",
+            "returnAll": true
+          },
+          "public": true
+        }
+      ]
+
+    },
+    {
+      "name": "flexipageField",
+      "type": "utam-tests/pageObjects/flexipageFieldTest",
+      "selector": {
+        "css": "flexipage-field",
+        "returnAll": true
+      },
+      "public": true
+    },
+    {
+      "name": "flexipageRecordField",
+      "type": "utam-record-flexipage/pageObjects/recordField",
+      "selector": {
+        "css": "record_flexipage-record-field",
+        "returnAll": true
+      },
+      "public": true
+    },
+    {
+      "name": "recordPicklistTest",
+      "type": "utam-tests/pageObjects/recordPicklistTest",
+      "selector": {
+        "css": "flexipage-field",
+        "returnAll": true
+      },
+      "public": true
+    },
+
+    {
+      "name": "flexipageFieldInputName",
+      "type": "utam-tests/pageObjects/flexipageFieldInputName",
+      "selector": {
+        "css": "flexipage-field",
+        "returnAll": true
+      },
+      "public": true
+    },
+    {
+      "name": "flexipageFieldInputAddress",
+      "type": "utam-tests/pageObjects/flexipageFieldInputAddress",
+      "selector": {
+        "css": "flexipage-field",
+        "returnAll": true
+      },
+      "public": true
+    },
+    {
+      "name": "flexipageFieldLayoutLookup",
+      "type": "utam-tests/pageObjects/flexipageFieldLayoutLookup",
+      "selector": {
+        "css": "flexipage-field",
+        "returnAll": true
+      },
+      "public": true
+    },
+    {
+      "name": "flexipageFieldCheckbox",
+      "type": "utam-tests/pageObjects/flexipageFieldCheckbox",
+      "selector": {
+        "css": "flexipage-field",
+        "returnAll": true
+      },
+      "public": true
+    },
+    {
+      "name": "flexipageFieldInput",
+      "type": "utam-tests/pageObjects/flexipageFieldInput",
+      "selector": {
+        "css": "flexipage-field",
+        "returnAll": true
+      },
+      "public": true
+    },
+
+
+
+    {
+        "name": "flexipageFieldMove",
+        "type": "actionable",
+        "selector": {
+          "css": "flexipage-field",
+          "returnAll": true
+        },
+        "public": true
+    },
+
+
+    {
+      "name": "modalFieldError",
+      "type": "clickable",
+      "selector": {
+        "css": ".fieldLevelErrors ul li a",
+        "returnAll": true
+      },
+      "public": true
+
+    },
+    {
+      "name": "messageError",
+      "selector": {
+        "css": "flexipage-component2 flexipage-field .slds-form-element__help",
+        "returnAll": true
+      },
+      "public": true
+    },
+    {
+      "name": "buttonSave",
+      "type": "clickable",
+      "selector": {
+        "css": "runtime_platform_actions-actions-ribbon lightning-button",
+        "returnAll": true
+      },
+      "public": true
+    }
+  ]
+}

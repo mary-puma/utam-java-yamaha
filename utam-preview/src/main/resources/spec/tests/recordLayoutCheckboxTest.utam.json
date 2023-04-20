@@ -1,0 +1,26 @@
+{
+  "metadata" : {
+    "status" : "public"
+  },
+  "description" : {
+    "author" : "mary",
+    "text" : [
+      "Selector: records-record-layout-checkbox.",
+      "Represents the records-record-layout-checkbox Lightning web component.",
+      "Access the input."
+    ]
+  },
+  "shadow" : {
+    "elements" : [
+      {
+        "type" : "utam-tests/pageObjects/inputTest",
+        "name" : "input",
+        "public" : true,
+        "nullable" : true,
+        "selector" : {
+          "css" : "lightning-input"
+        }
+      }
+    ]
+  }
+}

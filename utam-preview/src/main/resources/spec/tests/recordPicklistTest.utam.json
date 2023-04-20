@@ -1,0 +1,14 @@
+{
+  "elements": [
+    {
+      "name": "recordPicklist",
+      "type": "utam-records/pageObjects/recordPicklist",
+      "selector": {
+        "css": "records-record-picklist"
+      },
+      "public": true
+    }
+  ]
+
+
+}

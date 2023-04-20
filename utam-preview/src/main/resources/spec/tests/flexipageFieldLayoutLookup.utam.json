@@ -1,0 +1,13 @@
+{
+  "elements": [
+    {
+      "name": "recordLayoutLookup",
+      "type": "utam-tests/pageObjects/recordLayoutLookupTest",
+      "selector": {
+        "css": "records-record-layout-lookup"
+      },
+      "public": true
+    }
+  ]
+
+}

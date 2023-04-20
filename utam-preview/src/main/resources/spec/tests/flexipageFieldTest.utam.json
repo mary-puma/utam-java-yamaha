@@ -1,0 +1,13 @@
+{
+    "elements": [
+      {
+        "name": "recordlayoutBaseInput",
+        "type": "utam-tests/pageObjects/recordLayoutBaseInputTest",
+        "selector": {
+          "css": "records-record-layout-base-input"
+        },
+        "public": true
+      }
+    ]
+
+}
