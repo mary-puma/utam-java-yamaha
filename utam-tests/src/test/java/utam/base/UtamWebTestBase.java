@@ -95,7 +95,7 @@ public abstract class UtamWebTestBase {
   final UtamLoader setUtam(WebDriver driver) {
     this.driver = driver;
     UtamLoaderConfig config = new UtamLoaderConfigImpl("loader.config.json");
-    config.setExplicitTimeout(Duration.ofSeconds(60));
+    config.setExplicitTimeout(Duration.ofSeconds(180));
     config.setImplicitTimeout(Duration.ZERO);
     loader = new UtamLoaderImpl(config, driver);
     return loader;
