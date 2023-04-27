@@ -1,0 +1,69 @@
+{
+  "description" : {
+    "text" : [
+      "Selector: lightning-tabset",
+      "Represents the lightning-tabset Lightning web component.",
+      "Get the content for the active tab, or the tab bar component."
+    ],
+    "author" : "Salesforce"
+  },
+  "beforeLoad" : [
+    {
+      "apply" : "waitFor",
+      "args" : [
+        {
+          "type" : "function",
+          "predicate" : [
+            {
+              "element" : "root",
+              "apply" : "isPresent"
+            },
+            {
+              "element" : "root",
+              "apply" : "containsElement",
+              "args" : [
+                {
+                  "type" : "locator",
+                  "value" : {
+                    "css" : "flexipage-tab2"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "elements" : [
+    {
+      "name" : "activeTabContent",
+      "type" : "container",
+      "selector" : {
+        "css" : "[class*='slds-show'][role='tabpanel']"
+      },
+      "public" : true
+    },
+    {
+      "type" : "utam-tests/pageObjects/tab2Test",
+      "name" : "tab2",
+      "public" : true,
+      "selector" : {
+        "css" : "flexipage-tab2"
+      }
+    }
+  ],
+  "shadow" : {
+    "elements" : [
+      {
+        "type" : "utam-lightning/pageObjects/tabBar",
+        "name" : "tabBar",
+        "public" : true,
+        "selector" : {
+          "css" : "lightning-tab-bar"
+        }
+      }
+    ]
+  }
+
+}

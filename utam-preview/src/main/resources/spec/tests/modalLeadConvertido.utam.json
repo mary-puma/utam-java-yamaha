@@ -1,0 +1,75 @@
+{
+  "root": true,
+  "selector": {
+    "css": ".desktop.container.forceStyle.oneOne.navexDesktopLayoutContainer.lafAppLayoutHost.forceAccess.tablet"
+  },
+  "elements": [
+    {
+      "name": "modalContainer",
+      "selector": {
+        "css": ".DESKTOP.uiContainerManager"
+      }
+    },
+    {
+      "name": "title",
+      "selector": {
+        "css": ".header lightning-formatted-text"
+      },
+      "public": true
+    },
+    {
+      "name": "modalBody",
+      "nullable": true,
+      "selector": {
+        "css": ".modal-body"
+      }
+    }
+  ],
+  "methods": [
+    {
+      "name": "waitForModal",
+      "compose" : [
+        {
+          "apply" : "waitFor",
+          "args" : [
+            {
+              "type" : "function",
+              "predicate" : [
+                {
+                  "element" : "modalBody",
+                  "apply" : "isPresent"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "isModalBody",
+      "compose" : [
+        {
+          "element" : "modalBody",
+          "apply" : "isPresent"
+        }
+      ]
+    },
+    {
+      "name" : "hasModal",
+      "compose" : [
+        {
+          "element" : "modalContainer",
+          "apply" : "containsElement",
+          "args" : [
+            {
+              "type" : "locator",
+              "value" : {
+                "css" : ".DESKTOP.uiModal--leadConvert.uiModal.open.active"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

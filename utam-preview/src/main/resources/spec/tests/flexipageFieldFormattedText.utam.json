@@ -1,0 +1,38 @@
+{
+  "elements": [
+    {
+      "name": "lightningFormattedText",
+      "public": true,
+      "selector": {
+        "css": "lightning-formatted-text"
+      }
+    },
+    {
+      "name": "lightningFormattedPhone",
+      "public": true,
+      "selector": {
+        "css": "lightning-formatted-phone"
+      }
+    }
+  ],
+  "methods" : [
+    {
+      "name" : "getText",
+      "compose" : [
+        {
+          "element" : "lightningFormattedText",
+          "apply" : "getText"
+        }
+      ]
+    },
+    {
+      "name" : "getTextPhone",
+      "compose" : [
+        {
+          "element" : "lightningFormattedPhone",
+          "apply" : "getText"
+        }
+      ]
+    }
+  ]
+}

@@ -4,21 +4,26 @@
     "css": ".forceDetailPanelDesktop"
   },
 
-  "beforeLoad": [
+  "beforeLoad" : [
     {
-      "element": "root",
-      "apply": "waitFor",
-      "args": [
+      "apply" : "waitFor",
+      "args" : [
         {
-          "type": "function",
-          "predicate": [
+          "type" : "function",
+          "predicate" : [
             {
-              "element": "root",
-              "apply": "containsElement",
-              "args": [
+              "element" : "root",
+              "apply" : "isPresent"
+            },
+            {
+              "element" : "root",
+              "apply" : "containsElement",
+              "args" : [
                 {
-                  "value": { "css": ".createPanelDetail.slds-box_border.runtime_sales_leadConvertCreatePanelDesktop" },
-                  "type": "locator"
+                  "type" : "locator",
+                  "value" : {
+                    "css" : ".containerWithMargin .col2 .header"
+                  }
                 }
               ]
             }
@@ -29,6 +34,14 @@
   ],
 
  "elements": [
+   {
+     "name": "duplicados",
+     "selector": {
+       "css": "fieldset .duplistContainer .listContent",
+       "returnAll": true
+     },
+     "public": true
+   },
    {
      "name": "buttonConvert",
      "type": "clickable",
@@ -64,6 +77,7 @@
    },
    {
      "name": "messageError",
+     "nullable" : true,
      "selector": {
        "css": ".errorToast"
      },
@@ -74,7 +88,22 @@
      "selector": {
        "css": ".containerWithMargin.runtime_sales_leadConvertDesktop > fieldset .col4"
      }
+   },
+   {
+     "name": "labelPropietario",
+     "selector": {
+       "css": ".forcePageBlockItemEdit  label span"
+     }
 
+   },
+   {
+     "name": "sectionMove",
+     "public": true,
+     "type": "actionable",
+     "selector": {
+       "css": ".forceDetailPanelDesktop section",
+       "returnAll": true
+     }
    }
  ],
   "methods": [
@@ -95,7 +124,7 @@
                     "type": "stringEquals",
                     "args": [
                       {
-                        "value": "Convert"
+                        "value": "Convertir"
                       }
                     ]
                   }
@@ -123,7 +152,7 @@
                     "type": "stringEquals",
                     "args": [
                       {
-                        "value": "Choose Existing"
+                        "value": "Seleccionar existente"
                       }
                     ]
                   }
@@ -171,7 +200,7 @@
               "type" : "function",
               "predicate" : [
                 {
-                  "element" : "messageError",
+                  "element" : "root",
                   "apply" : "containsElement",
                   "args" : [
                     {
@@ -181,6 +210,34 @@
                       }
                     }
                   ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "waitTextPropietarioDeRegistro",
+      "compose": [
+        {
+
+          "apply": "waitFor",
+          "args": [
+            {
+              "type": "function",
+              "predicate": [
+                {
+                  "element": "labelPropietario",
+                  "apply": "getText",
+                  "matcher": {
+                    "type": "stringEquals",
+                    "args": [
+                      {
+                        "value": "Propietario de registro"
+                      }
+                    ]
+                  }
                 }
               ]
             }

@@ -1,0 +1,27 @@
+{
+  "elements": [
+    {
+      "name": "inputCheckbox",
+      "type" : "actionable",
+      "selector": {
+        "css": "lightning-input"
+      }
+    }
+  ],
+  "methods": [
+    {
+      "name" : "getCheckedState",
+      "compose" : [
+        {
+          "element" : "inputCheckbox",
+          "apply" : "getAttribute",
+          "args" : [
+            {
+              "value" : "checked"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -102,6 +102,24 @@
       "public": true
     },
 
+    {
+      "name": "flexipageFieldFormattedText",
+      "type": "utam-tests/pageObjects/flexipageFieldFormattedText",
+      "selector": {
+        "css": "flexipage-field",
+        "returnAll": true
+      },
+      "public": true
+    },
+    {
+      "name": "flexipageFieldLightningInput",
+      "type": "utam-tests/pageObjects/flexipageFieldLightningInput",
+      "selector": {
+        "css": "flexipage-field",
+        "returnAll": true
+      },
+      "public": true
+    },
 
 
     {

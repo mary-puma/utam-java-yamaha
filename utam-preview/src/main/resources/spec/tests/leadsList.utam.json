@@ -4,21 +4,26 @@
     "css": ".desktop.container.forceStyle.oneOne.navexDesktopLayoutContainer.lafAppLayoutHost.forceAccess.tablet"
   },
 
-  "beforeLoad": [
+  "beforeLoad" : [
     {
-      "element": "root",
-      "apply": "waitFor",
-      "args": [
+      "apply" : "waitFor",
+      "args" : [
         {
-          "type": "function",
-          "predicate": [
+          "type" : "function",
+          "predicate" : [
             {
-              "element": "root",
-              "apply": "containsElement",
-              "args": [
+              "element" : "root",
+              "apply" : "isPresent"
+            },
+            {
+              "element" : "root",
+              "apply" : "containsElement",
+              "args" : [
                 {
-                  "value": { "css": ".listViewContent table tbody tr>td" },
-                  "type": "locator"
+                  "type" : "locator",
+                  "value" : {
+                    "css" : ".forceInlineEditGrid table tbody tr>td"
+                  }
                 }
               ]
             }
@@ -72,7 +77,7 @@
         "name": "nameTitle",
         "public": true,
         "selector": {
-          "css": "th a [title='Name']"
+          "css": "th a [title='Nombre completo']"
         }
       },
       {
@@ -104,7 +109,7 @@
                     "type": "stringEquals",
                     "args": [
                       {
-                        "value": "Name"
+                        "value": "Nombre completo"
                       }
                     ]
                   }
@@ -116,11 +121,31 @@
       ]
     },
     {
-      "name" : "getRowsCount",
-      "compose" : [
+      "name": "waitForRecordsSpan",
+      "compose": [
         {
-          "element" : "tableRows",
-          "apply" : "size"
+
+          "apply": "waitFor",
+          "args": [
+            {
+              "type": "function",
+              "predicate": [
+                {
+                  "element" : "rowCells",
+                  "apply" : "containsElement",
+                  "args" : [
+                    {
+                      "type" : "locator",
+                      "value" : {
+                        "css" : ".slds-row-number"
+                      }
+                    }
+                  ]
+
+                }
+              ]
+            }
+          ]
         }
       ]
     }
