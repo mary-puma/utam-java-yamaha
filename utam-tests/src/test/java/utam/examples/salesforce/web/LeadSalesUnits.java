@@ -5,14 +5,13 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import utam.core.selenium.element.LocatorBy;
-import utam.global.pageobjects.RecordActionWrapper;
 import utam.helpers.pageobjects.Login;
 import utam.lightning.pageobjects.Combobox;
 import utam.navex.pageobjects.WorkspaceManager;
 import utam.tests.pageobjects.*;
 import utam.utils.salesforce.TestEnvironment;
 
-public class LeadCreationTest extends SalesforceWebTestBase {
+public class LeadSalesUnits extends SalesforceWebTestBase {
     private final TestEnvironment testEnvironment = getTestEnvironment("sandbox");
 
 
@@ -53,21 +52,23 @@ public class LeadCreationTest extends SalesforceWebTestBase {
                 .click();
 
 
-        loader.load(RecordActionWrapper.class).waitForFooter();
-        loader.load(TypeNewLead.class).getButtonNext().click();
+        //seleccion de venta de unidades
+        RecordActionW recordActionW = loader.load(RecordActionW.class);
+        recordActionW.getSelect(1).click();
+        recordActionW.getButtonNext().click();
 
         RecordActionWrapperTest copiaRecordActionWrapper = loader.load(RecordActionWrapperTest.class);
-        copiaRecordActionWrapper.waitForFooter();
         copiaRecordActionWrapper.getForceFormFooter().getActionsRibbon().getActionRendererWithTitle("Guardar").clickButton();
         loader.load(ModalMessageError.class).getButtonCloseModal().click();
 
+        Assert.assertEquals(copiaRecordActionWrapper.getDesktopRecordPageDecorator().getTitle().getText(),"Crear Candidato: Venta de Unidades");
 
         NewLead newLead = copiaRecordActionWrapper.getRecordHomeSingleColNoHeaderTemplateDesktop2Test();
         for (int i = 0; i < 35; i++) {
 
             //newLead.getFlexipageFieldMove().get(i).moveTo();
 
-            //input ej num de documento, i=2
+            //input con el componente record-layout-base-input ej num de documento, i=2
             if (newLead.getFlexipageField().get(i).containsElement(LocatorBy.byCss("records-record-layout-base-input"))) {
                 InputTest input = newLead.getFlexipageField()
                         .get(i)
@@ -102,7 +103,7 @@ public class LeadCreationTest extends SalesforceWebTestBase {
                         .getLightningInput();
                 if (input.isRequired()) {
                     System.out.println(input.getLabelText() + ", Mensaje de error: " + input.getErrorText());
-                    Assert.assertEquals(input.getErrorText(), "Cumpliment este campo.");
+                    Assert.assertEquals(input.getErrorText(), "Cumplimente este campo.");
 
                 }
 
@@ -119,7 +120,7 @@ public class LeadCreationTest extends SalesforceWebTestBase {
 
                 if (inputName.getLastNameInput().isRequired()) {
                     System.out.println(inputName.getLastNameInput().getLabelText() + ", Mensaje de error: " + inputName.getLastNameInput().getErrorText());
-                    Assert.assertEquals(inputName.getLastNameInput().getErrorText(), "Cumpliment este campo.");
+                    Assert.assertEquals(inputName.getLastNameInput().getErrorText(), "Cumplimente este campo.");
 
                 }
 
@@ -186,18 +187,14 @@ public class LeadCreationTest extends SalesforceWebTestBase {
                 if (input.isRequired()) {
                     System.out.println(input.getLabelText() + ", Mensaje de error: " + input.getErrorText());
                     Assert.assertEquals(input.getErrorText(), "Cumplimente este campo.");
-
                 }
             }
-
-
         }
-
-
     }
 
     @AfterTest
     public final void tearDown() {
-        quitDriver();
+
+        //quitDriver();
     }
 }
