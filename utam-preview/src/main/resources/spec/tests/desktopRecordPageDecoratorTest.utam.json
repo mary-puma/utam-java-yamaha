@@ -51,6 +51,13 @@
           "css" : "records-form-footer"
         },
         "public" : true
+      },
+      {
+        "name" : "title",
+        "selector" : {
+          "css" : "h2"
+        },
+        "public" : true
       }
     ]
   }

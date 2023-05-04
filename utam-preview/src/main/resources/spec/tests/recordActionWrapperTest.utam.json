@@ -317,6 +317,14 @@
       "selector" : {
         "css" : "div[class='overridePresent inlinePanel oneRecordActionWrapper']"
       }
+    },
+    {
+      "type" : "utam-tests/pageObjects/desktopRecordPageDecoratorTest",
+      "name" : "desktopRecordPageDecorator",
+      "selector" : {
+        "css" : "record_flexipage-desktop-record-page-decorator"
+      },
+      "public" : true
     }
   ]
 }

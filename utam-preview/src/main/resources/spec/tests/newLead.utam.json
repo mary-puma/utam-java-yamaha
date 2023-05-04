@@ -1,4 +1,10 @@
 {
+  "description" : {
+    "text" : [
+      "Selector: flexipage-record-home-single-col-no-header-template-desktop2"
+    ],
+    "author" : "mary puma"
+  },
   "type" : [
     "actionable"
   ],

@@ -1,0 +1,60 @@
+{
+  "root" : true,
+  "selector" : {
+    "css" : ".oneRecordActionWrapper"
+  },
+
+  "beforeLoad" : [
+    {
+      "apply" : "waitFor",
+      "args" : [
+        {
+          "type" : "function",
+          "predicate" : [
+            {
+              "element" : "root",
+              "apply" : "isPresent"
+            },
+            {
+              "element" : "root",
+              "apply" : "containsElement",
+              "args" : [
+                {
+                  "type" : "locator",
+                  "value" : {
+                    "css" : ".inlineFooter"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "elements": [
+    {
+      "name" : "buttonNext",
+      "type": "clickable",
+      "public": true,
+      "selector" : {
+        "css": ".inlineFooter .slds-button_brand"
+      }
+    },
+    {
+      "name" : "select",
+      "type": "clickable",
+      "public": true,
+      "selector" : {
+        "css": ".changeRecordTypeTopDownOneColumn label:nth-of-type(%d)",
+        "args": [
+          {
+            "name": "radio",
+            "type": "number"
+          }
+        ]
+      }
+    }
+  ]
+
+}
